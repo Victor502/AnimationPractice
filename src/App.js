@@ -6,18 +6,22 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import Button from './components/Button.js';
+import ShadowButton from './components/ShadowButton.js';
+import InsetButton from './components/InsetButton';
 import Opacity from './components/Opacity.js';
 import MovingBox from './components/MovingBox.js';
 
 const App: () => React$Node = () => {
   return (
-    <View>
+    <View style={{backgroundColor: '#f4f4f4'}}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView>
           <View style={styles.viewContainers}>
-            <Button />
+            <ShadowButton />
+          </View>
+          <View style={styles.viewContainers}>
+            <InsetButton />
           </View>
           <View style={styles.viewContainers}>
             <Opacity />

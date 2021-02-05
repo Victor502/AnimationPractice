@@ -9,7 +9,7 @@
 import React, {useRef} from 'react';
 import {StyleSheet, Pressable, Animated, Text} from 'react-native';
 
-export default function Button() {
+export default function ShadowButton() {
   const buttonAnimation = useRef(new Animated.Value(1)).current;
 
   const shadowAnimation = (toValue) => {
@@ -47,14 +47,15 @@ export default function Button() {
 
 const styles = StyleSheet.create({
   buttonStyle: {
-    margin: 50,
-    height: 50,
-    width: 120,
+    marginTop: 50,
+    paddingVertical: 16,
+    paddingHorizontal: 48,
     borderWidth: 1,
     borderColor: 'blue',
     borderRadius: 25,
     backgroundColor: 'blue',
     justifyContent: 'center',
+    alignSelf: 'center',
     alignItems: 'center',
   },
   textStyle: {
