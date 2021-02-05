@@ -1,17 +1,43 @@
 import React, {useRef} from 'react';
-import {View, StyleSheet, Animated} from 'react-native';
+import {View, StyleSheet, Animated, Text} from 'react-native';
 
 export default function MovingBox() {
-  const movingBox = useRef(new Animated.Value(0));
+  const movingBoxRef = useRef(new Animated.Value(0)).current;
 
-  return <View style={styles.container} />;
+  const movingBoxAnimation = () => {
+    Animated.timing(movingBoxRef, {
+      useNativeDriver: false,
+      toValue: 50,
+      duration: 1000,
+    }).start(() => {
+      Animated.timing(movingBoxRef, {
+        useNativeDriver: false,
+        toValue: -50,
+        duration: 1000,
+      }).start(); // () => movingBoxRef.setValue(0) resets back to start
+    });
+  };
+
+  const movingBoxStyle = {
+    transform: [{translateY: movingBoxRef}, {translateX: movingBoxRef}],
+  };
+
+  return (
+    <Animated.View style={[styles.container, movingBoxStyle]}>
+      <Text style={styles.container} onPress={() => movingBoxAnimation()}>
+        PressMe
+      </Text>
+    </Animated.View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 150,
-    width: 150,
-    marginHorizontal: 25,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    height: 90,
+    width: 90,
+    marginHorizontal: 15,
     backgroundColor: 'red',
   },
 });

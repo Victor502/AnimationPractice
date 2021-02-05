@@ -9,7 +9,7 @@
 import React, {useRef} from 'react';
 import {StyleSheet, Pressable, Animated, Text} from 'react-native';
 
-export default function ShadowButton() {
+export default function ShadowButton(props) {
   const buttonAnimation = useRef(new Animated.Value(1)).current;
 
   const shadowAnimation = (toValue) => {
@@ -35,7 +35,7 @@ export default function ShadowButton() {
   return (
     <Animated.View style={shadowStyle}>
       <Pressable
-        onPress={() => console.log('pressed')}
+        onPress={props.onPress}
         style={styles.buttonStyle}
         onPressIn={() => shadowAnimation(0)}
         onPressOut={() => shadowAnimation(1)}>

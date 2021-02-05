@@ -10,10 +10,12 @@ import ShadowButton from './components/ShadowButton.js';
 import InsetButton from './components/InsetButton';
 import Opacity from './components/Opacity.js';
 import MovingBox from './components/MovingBox.js';
+import ScalingBox from './components/ScalingBox';
+import RotatingBox from './components/RotatingBox';
 
 const App: () => React$Node = () => {
   return (
-    <View style={{backgroundColor: '#f4f4f4'}}>
+    <ScrollView style={{backgroundColor: '#f4f4f4', flex: 1}}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView>
@@ -26,18 +28,24 @@ const App: () => React$Node = () => {
           <View style={styles.viewContainers}>
             <Opacity />
           </View>
-          <View style={styles.viewContainers}>
+          <View
+            style={[
+              styles.viewContainers,
+              {flexDirection: 'row', justifyContent: 'space-between'},
+            ]}>
             <MovingBox />
+            <ScalingBox />
+            <RotatingBox />
           </View>
         </ScrollView>
       </SafeAreaView>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   viewContainers: {
-    margin: 25,
+    margin: 10,
   },
 });
 
