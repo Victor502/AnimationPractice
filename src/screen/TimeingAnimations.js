@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -25,18 +25,22 @@ const TimingAnimations = (props) => {
               <ShadowButton />
             </View>
             <View style={styles.viewContainers}>
-              <InsetButton />
+              <InsetButton text={'Press Me'} />
             </View>
             <View style={styles.viewContainers}>
               <Opacity />
             </View>
+            <View style={styles.space} />
             <View
               style={[
                 styles.viewContainers,
-                {flexDirection: 'row', justifyContent: 'space-between'},
+                {flexDirection: 'column', justifyContent: 'space-between'},
               ]}>
+              <View style={styles.space} />
               <MovingBox />
+              <View style={styles.space} />
               <ScalingBox />
+              <View style={styles.space} />
               <RotatingBox />
             </View>
           </ScrollView>
@@ -57,6 +61,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',
+  },
+  space: {
+    marginVertical: 10,
   },
   viewContainers: {
     margin: 10,

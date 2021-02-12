@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Pressable, StyleSheet, Text} from 'react-native';
 
-const InsetButton = () => {
+const InsetButton = (props) => {
   const [pressed, setPressed] = useState(false);
   const borderBottomInset = pressed
     ? {
@@ -38,10 +38,11 @@ const InsetButton = () => {
       <Pressable
         style={styles.container}
         onPressIn={() => setPressed(true)}
-        onPressOut={() => setPressed(false)}>
+        onPressOut={() => setPressed(false)}
+        onPress={props.onPress}>
         <View style={borderBottomInset}>
           <View style={[styles.container, borderTopInset]}>
-            <Text style={styles.textBase}>Press Me</Text>
+            <Text style={styles.textBase}>{props.text}</Text>
           </View>
         </View>
       </Pressable>
