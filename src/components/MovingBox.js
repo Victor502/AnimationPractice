@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {View, StyleSheet, Animated, Text} from 'react-native';
+import {View, StyleSheet, Animated, Text, Easing} from 'react-native';
 
 export default function MovingBox() {
   const movingBoxRef = useRef(new Animated.Value(0)).current;
@@ -9,6 +9,7 @@ export default function MovingBox() {
       useNativeDriver: false,
       toValue: 50,
       duration: 1000,
+      easing: Easing.bounce,
     }).start(() => {
       Animated.timing(movingBoxRef, {
         useNativeDriver: false,
@@ -38,6 +39,6 @@ const styles = StyleSheet.create({
     height: 90,
     width: 90,
     marginHorizontal: 15,
-    backgroundColor: 'red',
+    backgroundColor: 'green',
   },
 });

@@ -34,20 +34,25 @@ const InsetButton = () => {
       }
     : {};
   return (
-    <Pressable
-      style={styles.container}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}>
-      <View style={borderBottomInset}>
-        <View style={[styles.container, borderTopInset]}>
-          <Text style={styles.textBase}>Press Me</Text>
+    <View style={styles.mainContainer}>
+      <Pressable
+        style={styles.container}
+        onPressIn={() => setPressed(true)}
+        onPressOut={() => setPressed(false)}>
+        <View style={borderBottomInset}>
+          <View style={[styles.container, borderTopInset]}>
+            <Text style={styles.textBase}>Press Me</Text>
+          </View>
         </View>
-      </View>
-    </Pressable>
+      </Pressable>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    backgroundColor: '#f4f4f4',
+  },
   container: {
     flexDirection: 'row',
     paddingVertical: 16,
