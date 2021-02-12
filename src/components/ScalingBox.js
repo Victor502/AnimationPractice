@@ -39,7 +39,7 @@ export default function ScalingBox() {
       <Text
         style={[styles.container, {textAlign: 'center'}]}
         onPress={() => flippingBoxAnimation()}>
-        PressMe
+        Press Me
       </Text>
     </Animated.View>
   );
@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     height: 90,
     width: 90,
     marginHorizontal: 15,
-    backgroundColor: 'red',
+    backgroundColor: 'orange',
   },
 });
