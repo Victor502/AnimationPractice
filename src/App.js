@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet, Pressable} from 'react-native';
 import TimingAnimations from './screen/TimeingAnimations';
 import SpringAnimation from './screen/SpringAnimation';
 import InsetButton from './components/InsetButton';
@@ -17,18 +17,21 @@ const HomeScreen = (props) => {
       <LoopingAnimation text={'Animations'} />
       <Text style={styles.homeText}> Practice Animations</Text>
       <View style={styles.navigationContainer}>
-        <InsetButton
+        <Pressable
           onPress={() => props.navigation.navigate('Timing')}
-          text={'Timing'}
-        />
-        <InsetButton
+          style={styles.navStyle}>
+          <Text>Timing</Text>
+        </Pressable>
+        <Pressable
           onPress={() => props.navigation.navigate('Spring')}
-          text={'Spring'}
-        />
-        <InsetButton
+          style={styles.navStyle}>
+          <Text>Spring</Text>
+        </Pressable>
+        <Pressable
           onPress={() => props.navigation.navigate('Color')}
-          text={'Color'}
-        />
+          style={styles.navStyle}>
+          <Text>Color</Text>
+        </Pressable>
       </View>
       <SafeAreaView />
     </View>
@@ -63,6 +66,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',
+  },
+  navStyle: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
   },
 });
 
